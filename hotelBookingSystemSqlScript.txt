@@ -1,0 +1,44 @@
+CREATE DATABASE hotelBookingSystem;
+
+CREATE TABLE public.hotel_info
+(
+    id integer NOT NULL,
+    ac boolean,
+    address character varying(255) COLLATE pg_catalog."default",
+    city character varying(255) COLLATE pg_catalog."default",
+    cost character varying(255) COLLATE pg_catalog."default",
+    date timestamp without time zone,
+    meals boolean,
+    name character varying(255) COLLATE pg_catalog."default",
+    no_of_rooms integer,
+    restaurant boolean,
+    stars character varying(255) COLLATE pg_catalog."default",
+    wifi boolean,
+    CONSTRAINT hotel_info_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.review
+(
+    id integer NOT NULL,
+    comments character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    hotel_id integer NOT NULL,
+    rating character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    status character(1) COLLATE pg_catalog."default",
+    user_id integer NOT NULL,
+    CONSTRAINT review_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.users
+(
+    id integer NOT NULL,
+    address character varying(255) COLLATE pg_catalog."default",
+    dob timestamp without time zone,
+    email_id character varying(255) COLLATE pg_catalog."default",
+    first_name character varying(255) COLLATE pg_catalog."default",
+    gender character varying(255) COLLATE pg_catalog."default",
+    last_name character varying(255) COLLATE pg_catalog."default",
+    middle_name character varying(255) COLLATE pg_catalog."default",
+    phone_number character varying(255) COLLATE pg_catalog."default",
+    status character(1) COLLATE pg_catalog."default",
+    CONSTRAINT users_pkey PRIMARY KEY (id)
+);
